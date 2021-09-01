@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    
+    <!-- include A-Frame obviously -->
+    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+    
+    <!-- include ar.js for A-Frame -->
+    <!-- rawgithack development URL -->
+    <!-- <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script> -->
+    <!-- 為了Debug我更改了原始的Code增加錯誤輸出，可以改回上面的rawgithack沒有問題 -->
+    <script src="/ARNFT"></script>
+
+</head>
+    
+<style>
+    .arjs-loader {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .arjs-loader div {
+      text-align: center;
+      font-size: 1.25em;
+      color: white;
+    }
+  </style>
+  
+  <body style='margin : 0px; overflow: hidden;'>
+     <!-- minimal loader shown until image descriptors are loaded -->
+    <div class="arjs-loader">
+      <div>Loading, please wait...</div>
+    </div>
+      <a-scene
+          vr-mode-ui="enabled: false;"
+          renderer="logarithmicDepthBuffer: true;"
+          embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
+  
+          <!-- ======================================================================================= -->
+          <!-- 因為手機無法一次全部載入，網頁會閃退（我用Iphone 12測的...這台不行其他手機應該也不行） -->
+          <!-- 所以一次載入最多一半就好 -->
+
+          <!-- 現在沒有碼掉的是測試有追到的，在註解裡補上我自己的評分 -->
+          <!-- ======================================================================================= -->
+          <!-- 這裡是有追出來的 -->
+          <!-- 範例圖片（恐龍），跑分4/5顆星，實測穩定度80分 -->
+          <a-nft
+              type='nft' url='datasets/Dino'
+              smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'
+            >
+                <a-box scale="100 10 100" position="0 0 -50" material='color: red;'></a-box>
+          </a-nft>
+
+          <!-- 海報，跑分0/5顆星，實測穩定度60分 -->
+          <a-nft
+              type='nft' url='datasets/1DAC'
+              smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'
+            >
+                <a-box scale="100 10 100" position="50 150 0" material='color: red;'></a-box>
+          </a-nft>
+
+          <!-- 路易莎，跑分0/5顆星，實測穩定度40分-->
+          <a-nft
+              type='nft' url='datasets/4LOUISA'
+              smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'
+            >
+                <a-box scale="100 10 100" position="50 150 0" material='color: red;'></a-box>
+          </a-nft>
+
+          <!-- 五十嵐，跑分0/5顆星，實測穩定度20分 -->
+          <a-nft
+              type='nft' url='datasets/6五十嵐'
+              smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'
+            >
+                <a-box scale="100 10 100" position="50 150 0" material='color: red;'></a-box>
+          </a-nft>
+          <!-- ================================================================================== -->
+          <!-- 從來沒追到過的 -->
+          <!--
+          <a-nft
+              type='nft' url='datasets/2屈臣氏'
+              smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'
+            >
+                <a-box scale="100 10 100" position="50 150 0" material='color: red;'></a-box>
+          </a-nft>
+          <a-nft
+              type='nft' url='datasets/3SEVEN'
+              smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'
+            >
+                <a-box scale="100 10 100" position="50 150 0" material='color: red;'></a-box>
+          </a-nft> 
+          <a-nft
+              type='nft' url='datasets/5MOS'
+              smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'
+            >
+                <a-box scale="100 10 100" position="50 150 0" material='color: red;'></a-box>
+          </a-nft> 
+           <a-nft
+              type='nft' url='datasets/7全家'
+              smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'
+            >
+                <a-box scale="100 10 100" position="50 150 0" material='color: red;'></a-box>
+          </a-nft>
+          <a-nft
+              type='nft' url='datasets/8康是美'
+              smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'
+            >
+                <a-box scale="100 10 100" position="50 150 0" material='color: red;'></a-box>
+          </a-nft>
+          <a-nft
+              type='nft' url='datasets/9家樂福'
+              smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'
+            >
+                <a-box scale="100 10 100" position="50 150 0" material='color: red;'></a-box>
+          </a-nft>
+          <a-nft
+              type='nft' url='datasets/ARmessenger'
+              smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'
+            >
+                <a-box scale="100 10 100" position="50 150 0" material='color: red;'></a-box>
+          </a-nft> -->
+         
+          <a-entity camera></a-entity>
+      </a-scene>
+  </body>
